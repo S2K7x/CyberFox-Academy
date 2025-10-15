@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import CyberfoxLanding from './CyberfoxLanding';
 import './index.css';
-import CyberfoxLanding from './components/CyberfoxLanding';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
