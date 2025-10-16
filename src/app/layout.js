@@ -1,5 +1,5 @@
 // src/app/layout.js
-import './globals.css';
+import '/src/app/globals.css';
 
 export const metadata = {
   title: 'Cyberfox Academy',
