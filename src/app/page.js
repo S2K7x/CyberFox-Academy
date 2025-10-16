@@ -55,36 +55,6 @@ export default function CyberfoxLanding() {
     <div className="bg-[#0A0F1F] text-white min-h-screen">
       {/* Hero Section */}
       <section className="relative overflow-hidden min-h-screen flex items-center justify-center px-4">
-        {/* ... ton code HTML/CSS reste identique ... */}
-      </section>
-
-      {/* Why Cyberfox Section */}
-      <section className="py-24 px-4 relative">
-        {/* ... ton code HTML/CSS reste identique ... */}
-      </section>
-
-      {/* Program Section */}
-      <section className="py-24 px-4 bg-gradient-to-b from-[#0A0F1F] to-gray-900/50">
-        {/* ... ton code HTML/CSS reste identique ... */}
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-32 px-4 relative overflow-hidden">
-        {/* ... ton code HTML/CSS reste identique ... */}
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-black/50 backdrop-blur py-12 px-4 border-t border-gray-800">
-        {/* ... ton code HTML/CSS reste identique ... */}
-      </footer>
-    </div>
-  );
-}
-
-  return (
-    <div className="bg-[#0A0F1F] text-white min-h-screen">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden min-h-screen flex items-center justify-center px-4">
         <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-purple-900/20 to-[#0A0F1F]"></div>
         
         {/* Animated Background Grid */}
@@ -291,5 +261,4 @@ export default function CyberfoxLanding() {
       </footer>
     </div>
   );
-}
 }
