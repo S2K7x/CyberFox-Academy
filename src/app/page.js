@@ -1,14 +1,14 @@
 'use client';
+
 import React, { useState, useEffect } from 'react';
-import { Shield, Zap, Users, Book, Video, MessageCircle, Download, ArrowRight, Terminal } from 'lucide-react';
-export default function CyberfoxLanding() {
-  import React, { useState, useEffect } from 'react';
-import { Shield, Zap, Users, Book, Video, MessageCircle, Download, ArrowRight, Terminal, Lock, Eye, Server, Network, Bug } from 'lucide-react';
+import { 
+  Shield, Zap, Users, Book, Video, MessageCircle, Download, ArrowRight, Terminal, Lock, Eye, Server, Network, Bug 
+} from 'lucide-react';
 
 export default function CyberfoxLanding() {
   const [typedText, setTypedText] = useState('');
   const fullText = '> Initialisation du système de formation...';
-  
+
   useEffect(() => {
     let index = 0;
     const timer = setInterval(() => {
@@ -50,6 +50,36 @@ export default function CyberfoxLanding() {
     { icon: <Terminal className="w-6 h-6" />, text: 'Deviens un analyste cyber complet' },
     { icon: <Users className="w-6 h-6" />, text: 'Communauté active sur Discord' }
   ];
+
+  return (
+    <div className="bg-[#0A0F1F] text-white min-h-screen">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden min-h-screen flex items-center justify-center px-4">
+        {/* ... ton code HTML/CSS reste identique ... */}
+      </section>
+
+      {/* Why Cyberfox Section */}
+      <section className="py-24 px-4 relative">
+        {/* ... ton code HTML/CSS reste identique ... */}
+      </section>
+
+      {/* Program Section */}
+      <section className="py-24 px-4 bg-gradient-to-b from-[#0A0F1F] to-gray-900/50">
+        {/* ... ton code HTML/CSS reste identique ... */}
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-32 px-4 relative overflow-hidden">
+        {/* ... ton code HTML/CSS reste identique ... */}
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-black/50 backdrop-blur py-12 px-4 border-t border-gray-800">
+        {/* ... ton code HTML/CSS reste identique ... */}
+      </footer>
+    </div>
+  );
+}
 
   return (
     <div className="bg-[#0A0F1F] text-white min-h-screen">
