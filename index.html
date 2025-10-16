@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberfox Academy - Deviens un expert en cybersécurité</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #0A0F1F;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 15, 31, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #00FFFF, #7B61FF);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #00FFFF, #7B61FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00FFFF;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 64px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            opacity: 0.2;
+        }
+
+        .bg-blob-1 {
+            position: absolute;
+            top: 80px;
+            left: 40px;
+            width: 288px;
+            height: 288px;
+            background: #00FFFF;
+            border-radius: 50%;
+            filter: blur(120px);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .bg-blob-2 {
+            position: absolute;
+            bottom: 80px;
+            right: 40px;
+            width: 384px;
+            height: 384px;
+            background: #7B61FF;
+            border-radius: 50%;
+            filter: blur(120px);
+            animation: pulse 4s ease-in-out infinite 1s;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            text-align: center;
+        }
+
+        .terminal-text {
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            color: #00FFFF;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .cursor {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #00FFFF, #7B61FF, #FF1493);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: gradient-shift 3s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            color: #D1D5DB;
+            margin-bottom: 3rem;
+            max-width: 768px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #00FFFF, #0080FF);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+        }
+
+        .btn-discord {
+            background: #5865F2;
+            color: white;
+        }
+
+        .btn-discord:hover {
+            box-shadow: 0 0 30px rgba(88, 101, 242, 0.5);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 768px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #9CA3AF;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 1.5rem;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: #9CA3AF;
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(0, 255, 255, 0.6);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #00FFFF, #7B61FF);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+        }
+
+        /* Program Section */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .module-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(123, 97, 255, 0.2);
+            overflow: hidden;
+            transition: all 0.5s;
+        }
+
+        .module-card:hover {
+            border-color: rgba(123, 97, 255, 0.6);
+        }
+
+        .module-header {
+            height: 4px;
+            background: linear-gradient(90deg, #00FFFF, #0080FF);
+        }
+
+        .module-content {
+            padding: 2rem;
+        }
+
+        .module-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .module-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .module-description {
+            color: #00FFFF;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .module-topics {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .module-topics li {
+            display: flex;
+            align-items: start;
+            gap: 0.75rem;
+            color: #D1D5DB;
+            margin-bottom: 0.75rem;
+        }
+
+        .module-topics i {
+            color: #00FFFF;
+            margin-top: 0.25rem;
+        }
+
+        .module-footer {
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #9CA3AF;
+            font-size: 0.875rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(180deg, #0A0F1F, #0F1829);
+            text-align: center;
+        }
+
+        .cta-icon {
+            font-size: 4rem;
+            color: #00FFFF;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Footer */
+        footer {
+            background: #0A0F1F;
+            border-top: 1px solid rgba(0, 255, 255, 0.2);
+            padding: 3rem 1.5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #9CA3AF;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #00FFFF;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-discord { background: #5865F2; }
+        .social-youtube { background: #DC2626; }
+        .social-linkedin { background: #2563EB; }
+        .social-github { background: #374151; }
+
+        .social-icon:hover {
+            box-shadow: 0 0 20px currentColor;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 255, 255, 0.2);
+            text-align: center;
+            color: #9CA3AF;
+            font-size: 0.875rem;
+        }
+
+        /* Inscription Section */
+        .inscription-box {
+            max-width: 672px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .inscription-box p {
+            color: #D1D5DB;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: #0A0F1F;
+                flex-direction: column;
+                padding: 1rem;
+                border-top: 1px solid rgba(0, 255, 255, 0.2);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">🦊</div>
+                <span class="logo-text">Cyberfox Academy</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#programme">Programme</a></li>
+                <li><a href="#avantages">Avantages</a></li>
+                <li><a href="#inscription">Inscription</a></li>
+                <li><a href="https://discord.gg/cyberfox" target="_blank">Discord</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="bg-blob-1"></div>
+            <div class="bg-blob-2"></div>
+        </div>
+        <div class="hero-content">
+            <div class="terminal-text">
+                <span id="typedText"></span><span class="cursor">_</span>
+            </div>
+            <h1>
+                Deviens un expert en<br>
+                <span class="gradient-text">cybersécurité</span><br>
+                avec Cyberfox Academy 🦊
+            </h1>
+            <p class="hero-subtitle">
+                Apprends à protéger, analyser et hacker éthiquement — à ton rythme ou en live.
+            </p>
+            <div class="cta-buttons">
+                <a href="/syllabus.pdf" download class="btn btn-primary">
+                    <i class="fas fa-download"></i>
+                    Télécharger le syllabus
+                </a>
+                <a href="https://discord.gg/cyberfox" target="_blank" class="btn btn-discord">
+                    <i class="fab fa-discord"></i>
+                    Rejoindre Discord
+                </a>
+            </div>
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number" style="color: #00FFFF;">20+</div>
+                    <div class="stat-label">Modules complets</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" style="color: #7B61FF;">Live</div>
+                    <div class="stat-label">Sessions en direct</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" style="color: #FF1493;">24/7</div>
+                    <div class="stat-label">Accès illimité</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Cyberfox Section -->
+    <section id="avantages" style="background: linear-gradient(180deg, #0A0F1F, #0F1829);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    Pourquoi <span style="color: #00FFFF;">Cyberfox</span> ?
+                </h2>
+                <p class="section-subtitle">
+                    La formation qui transforme ta passion tech en expertise professionnelle
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <p>Formations modernes, simples et accessibles</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <p>Cours vidéos + lives interactifs</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <p>Apprends avec de vrais cas d'attaque</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <p>Deviens un analyste cyber complet</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <p>Communauté active sur Discord</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Section -->
+    <section id="programme">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    Un parcours complet en <span style="color: #7B61FF;">3 étapes</span>
+                </h2>
+                <p class="section-subtitle">
+                    De débutant à expert en cybersécurité
+                </p>
+            </div>
+            <div class="modules-grid">
+                <div class="module-card">
+                    <div class="module-header" style="background: linear-gradient(90deg, #00FFFF, #0080FF);"></div>
+                    <div class="module-content">
+                        <div class="module-emoji">🧩</div>
+                        <h3 class="module-title">Fondamentaux & Systèmes</h3>
+                        <p class="module-description">Modules 1-9</p>
+                        <ul class="module-topics">
+                            <li>
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Introduction à la cybersécurité</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Systèmes d'exploitation (Linux/Windows)</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Réseaux et protocoles TCP/IP</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Fondamentaux de la cryptographie</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Architecture système et services</span>
+                            </li>
+                        </ul>
+                        <div class="module-footer">
+                            <span>🎥 Vidéos + 💬 Lives</span>
+                            <i class="fas fa-lock"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header" style="background: linear-gradient(90deg, #7B61FF, #FF1493);"></div>
+                    <div class="module-content">
+                        <div class="module-emoji">🧠</div>
+                        <h3 class="module-title">Hacking Éthique & Pentest</h3>
+                        <p class="module-description">Modules 10-15</p>
+                        <ul class="module-topics">
+                            <li>
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Méthodologies de pentest</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Scanning et énumération</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Exploitation de vulnérabilités</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Web Application Security</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Post-exploitation et pivoting</span>
+                            </li>
+                        </ul>
+                        <div class="module-footer">
+                            <span>🎥 Vidéos + 💬 Lives</span>
+                            <i class="fas fa-lock"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header" style="background: linear-gradient(90deg, #8B5CF6, #7B61FF);"></div>
+                    <div class="module-content">
+                        <div class="module-emoji">🛡️</div>
+                        <h3 class="module-title">Analyse & Défense (Blue Team)</h3>
+                        <p class="module-description">Modules 16-20</p>
+                        <ul class="module-topics">
+                            <li>
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Détection d'intrusions</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Analyse de logs et SIEM</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Incident Response</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Threat Intelligence</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Sécurisation d'infrastructure</span>
+                            </li>
+                        </ul>
+                        <div class="module-footer">
+                            <span>🎥 Vidéos + 💬 Lives</span>
+                            <i class="fas fa-lock"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <a href="/syllabus.pdf" download class="btn" style="background: linear-gradient(90deg, #7B61FF, #FF1493); color: white;">
+                    <i class="fas fa-download"></i>
+                    Télécharger le syllabus complet (PDF)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-icon">
+                <i class="fas fa-eye"></i>
+            </div>
+            <h2 class="section-title">La cybersécurité n'attend pas</h2>
+            <p class="hero-subtitle" style="margin-bottom: 3rem;">
+                Rejoins la prochaine génération d'experts et commence ton parcours aujourd'hui
+            </p>
+            <a href="#inscription" class="btn" style="background: linear-gradient(90deg, #00FFFF, #7B61FF, #FF1493); color: white; font-size: 1.25rem; padding: 1.5rem 3rem;">
+                🔥 Rejoindre Cyberfox Academy maintenant
+            </a>
+        </div>
+    </section>
+
+    <!-- Inscription Section -->
+    <section id="inscription">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Prêt à commencer ?</h2>
+                <p class="section-subtitle">
+                    Inscris-toi pour recevoir toutes les infos sur le lancement
+                </p>
+            </div>
+            <div class="inscription-box">
+                <p>Inscris-toi via notre formulaire Google Forms pour rejoindre la liste d'attente</p>
+                <a href="https://forms.gle/YOUR_FORM_LINK" target="_blank" class="btn" style="background: linear-gradient(90deg, #00FFFF, #7B61FF); color: white;">
+                    <i class="fas fa-edit"></i>
+                    Remplir le formulaire d'inscription
+                </a>
+                <p style="margin-top: 1.5rem; font-size: 0.875rem;">
+                    Tu recevras toutes les informations sur les dates de lancement et les offres early bird
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="logo" style="margin-bottom: 1rem;">
+                        <div class="logo-icon">🦊</div>
+                        <span class="logo-text">Cyberfox Academy</span>
+                    </div>
+                    <p style="color: #9CA3AF; font-size: 0.875rem;">
+                        La formation nouvelle génération en cybersécurité pour les passionnés de tech.
+                    </p>
+                </div>
+                <div class="footer-column">
+                    <h3>Liens rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="#programme">Programme</a></li>
+                        <li><a href="#avantages">Avantages</a></li>
+                        <li><a href="#inscription">Inscription</a></li>
+                        <li><a href="/mentions-legales">Mentions légales</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Communauté</h3>
+                    <div class="social-icons">
+                        <a href="https://discord.gg/cyberfox" target="_blank" class="social-icon social-discord">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="https://youtube.com/@cyberfox" target="_blank" class="social-icon social-youtube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/cyberfox" target="_blank" class="social-icon social-linkedin">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/cyberfox-academy" target="_blank" class="social-icon social-github">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2025 Cyberfox Academy — Built for the next generation of hackers. 🦊
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
