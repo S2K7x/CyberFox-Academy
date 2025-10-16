@@ -1,14 +1,15 @@
+// src/app/layout.js
+import './globals.css';
+
 export const metadata = {
-  title: "Cyberfox Academy",
-  description: "Apprends la cybersécurité avec Cyberfox Academy — formations, challenges et coaching.",
+  title: 'Cyberfox Academy',
+  description: 'Apprends la cybersécurité avec Cyberfox Academy',
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
-      <body className="bg-black text-white">
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
